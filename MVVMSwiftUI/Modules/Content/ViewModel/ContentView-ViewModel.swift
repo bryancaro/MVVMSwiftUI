@@ -18,9 +18,9 @@ extension ContentView {
         private var repository: ContentRepositoryProtocol!
         private var callback  : ViewModelAlertProtocol!
         //  MARK: - Lifecycle
-        override init() {
-            super.init()
+        init(_ isLoading: Bool = true, repository: ContentRepositoryProtocol = ContentRepository()) {
             print("[DEBUG]-[VIEWMODEL] []: [init]")
+            super.init(isLoading)
             self.callback                    = self
             self.repository                  = ContentRepository()
             self.repository.callbackDelegate = self.callback
@@ -43,6 +43,11 @@ extension ContentView {
         //  MARK: - UI
         func configureUI() {
             print("[DEBUG]-[VIEWMODEL] []: [configureUI]")
+        }
+        
+        func configureLondonWeather(_ londonWeather: LocationWeatherModel) {
+            self.londonWeather = londonWeather
+            dismissLoading()
         }
         //  MARK: - Actions
         func getLondonWeatherAction() {
@@ -73,18 +78,14 @@ extension ContentView {
         private func readLondonWeather() {
             showLoading()
             repository.readLondonWeather { [weak self] londonWeather in
-                print(londonWeather)
-                self?.londonWeather = londonWeather
-                self?.dismissLoading()
+                self?.configureLondonWeather(londonWeather)
             }
         }
         
         private func readErrorLondonWeather() {
             showLoading()
             repository.readLondonWeatherErrorMsg { [weak self] londonWeather in
-                print(londonWeather)
-                self?.londonWeather = londonWeather
-                self?.dismissLoading()
+                self?.configureLondonWeather(londonWeather)
             }
         }
         //  MARK: - Alerts

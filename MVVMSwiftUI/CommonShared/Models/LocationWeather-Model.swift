@@ -8,7 +8,11 @@
 import Foundation
 
 // MARK: - WeatherModel
-struct LocationWeatherModel {
+struct LocationWeatherModel: Equatable {
+    static func == (lhs: LocationWeatherModel, rhs: LocationWeatherModel) -> Bool {
+        lhs.name == rhs.name
+    }
+    
     let coord     : CoordModel
     let weather   : [WeatherModel]
     let base      : String

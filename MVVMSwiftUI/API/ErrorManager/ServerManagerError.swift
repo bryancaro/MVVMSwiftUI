@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ServerManagerError: Error {
+enum ServerManagerError: Error, Equatable {
     case serverError(String)
     case checkAccessError(String)
     case clientError(String)
