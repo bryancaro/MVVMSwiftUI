@@ -11,28 +11,29 @@ import Combine
 
 class UnitTestingContentServer_Tests: XCTestCase {
     
-    var server: ContentServer?
-    private var cancellableGetLondonWeather: Cancellable?
+    var server : ContentServer?
+    var manager: NetworkController?
+    private var cancellableGetLondonWeather        : Cancellable?
     private var cancellableGetLondonWeatherErrorMsg: Cancellable?
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        server = ContentServer()
+        server  = ContentServer()
+        manager = server?.manager
     }
     
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        server = nil
+        server  = nil
+        manager = nil
     }
     
     func test_ContentServer_getLondonWeather_shouldNotBeNil() {
         //  Given
-        guard let server = server else {
+        guard let manager = manager else {
             return XCTFail()
         }
-        
-        let manager = server.manager
-        
+                
         //  When
         var londonWeatherResponse: LocationWeatherResponse?
         let expectation = XCTestExpectation()
@@ -56,11 +57,10 @@ class UnitTestingContentServer_Tests: XCTestCase {
     
     func test_ContentServer_getLondonWeatherErrorMsg_doesFail() {
         //  Given
-        guard let server = server else {
+        guard let manager = manager else {
             return XCTFail()
         }
         
-        let manager = server.manager
         let errorType: ServerManagerError = .clientError("Nothing to geocode")
         
         //  When
@@ -94,11 +94,10 @@ class UnitTestingContentServer_Tests: XCTestCase {
     
     func test_ContentServer_getLondonWeatherErrorMsg_doesFailWithDiffentErrorType() {
         //  Given
-        guard let server = server else {
+        guard let manager = manager else {
             return XCTFail()
         }
         
-        let manager = server.manager
         let errorType: ServerManagerError = .serverError("Nothing to geocode")
         
         //  When
