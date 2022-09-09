@@ -15,34 +15,34 @@ extension ContentView {
         @Published var londonWeather: LocationWeatherModel?
         //  MARK: - API Cancellable
         //  MARK: - Constants
-        private var repository: ContentRepositoryProtocol!
-        private var callback  : ViewModelAlertProtocol!
+        private      var repository: ContentRepositoryProtocol!
+        private weak var callback  : ViewModelAlertProtocol?
         //  MARK: - Lifecycle
         init(_ isLoading: Bool = true, repository: ContentRepositoryProtocol = ContentRepository()) {
-            print("[DEBUG]-[VIEWMODEL] []: [init]")
+            print("[DEBUG]-[VIEWMODEL] [ContentView]: [init]")
             super.init(isLoading)
             self.callback                    = self
-            self.repository                  = ContentRepository()
+            self.repository                  = repository
             self.repository.callbackDelegate = self.callback
             initData()
         }
         
         deinit {
-            print("[DEBUG]-[VIEWMODEL] []: [deinit]")
+            print("[DEBUG]-[VIEWMODEL] [ContentView]: [deinit] [\(self)]")
             deinitData()
         }
         
         func onAppear() {
-            print("[DEBUG]-[VIEWMODEL] []: [onAppear]")
+            print("[DEBUG]-[VIEWMODEL] [ContentView]: [onAppear]")
             dismissLoading()
         }
         
         func onDisappear() {
-            print("[DEBUG]-[VIEWMODEL] []: [onDisappear]")
+            print("[DEBUG]-[VIEWMODEL] [ContentView]: [onDisappear]")
         }
         //  MARK: - UI
         func configureUI() {
-            print("[DEBUG]-[VIEWMODEL] []: [configureUI]")
+            print("[DEBUG]-[VIEWMODEL] [ContentView]: [configureUI]")
         }
         
         func configureLondonWeather(_ londonWeather: LocationWeatherModel) {

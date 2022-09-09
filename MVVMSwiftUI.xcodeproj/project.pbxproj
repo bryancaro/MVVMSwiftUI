@@ -51,6 +51,17 @@
 		114D65C028CA00AE001A21EF /* ContentView-Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114D65B628CA00AE001A21EF /* ContentView-Model.swift */; };
 		114D65C128CA00AE001A21EF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114D65B828CA00AE001A21EF /* ContentView.swift */; };
 		114D65C228CA00AE001A21EF /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114D65BB28CA00AE001A21EF /* DetailView.swift */; };
+		1188EAAC28CB822000E6DE3F /* AppRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188EAA728CB821F00E6DE3F /* AppRepository.swift */; };
+		1188EAAD28CB822000E6DE3F /* AppLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188EAA928CB821F00E6DE3F /* AppLocal.swift */; };
+		1188EAAE28CB822000E6DE3F /* AppServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188EAAB28CB822000E6DE3F /* AppServer.swift */; };
+		1188EAB028CB82A200E6DE3F /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188EAAF28CB82A200E6DE3F /* AppView.swift */; };
+		1188EAB228CB82DC00E6DE3F /* AppView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188EAB128CB82DC00E6DE3F /* AppView-ViewModel.swift */; };
+		1188EAB428CB845700E6DE3F /* App-Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188EAB328CB845700E6DE3F /* App-Model.swift */; };
+		1188EABD28CB859000E6DE3F /* DetailServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188EAB928CB859000E6DE3F /* DetailServer.swift */; };
+		1188EABE28CB859000E6DE3F /* DetailRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188EABA28CB859000E6DE3F /* DetailRepository.swift */; };
+		1188EABF28CB859000E6DE3F /* DetailLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188EABC28CB859000E6DE3F /* DetailLocal.swift */; };
+		1188EAC128CB861400E6DE3F /* Detail-Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188EAC028CB861400E6DE3F /* Detail-Model.swift */; };
+		1188EAC328CB866500E6DE3F /* DetailView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188EAC228CB866500E6DE3F /* DetailView-ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +131,17 @@
 		114D65B828CA00AE001A21EF /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		114D65BB28CA00AE001A21EF /* DetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		114D65C428CA0339001A21EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1188EAA728CB821F00E6DE3F /* AppRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRepository.swift; sourceTree = "<group>"; };
+		1188EAA928CB821F00E6DE3F /* AppLocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLocal.swift; sourceTree = "<group>"; };
+		1188EAAB28CB822000E6DE3F /* AppServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppServer.swift; sourceTree = "<group>"; };
+		1188EAAF28CB82A200E6DE3F /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		1188EAB128CB82DC00E6DE3F /* AppView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppView-ViewModel.swift"; sourceTree = "<group>"; };
+		1188EAB328CB845700E6DE3F /* App-Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App-Model.swift"; sourceTree = "<group>"; };
+		1188EAB928CB859000E6DE3F /* DetailServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailServer.swift; sourceTree = "<group>"; };
+		1188EABA28CB859000E6DE3F /* DetailRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRepository.swift; sourceTree = "<group>"; };
+		1188EABC28CB859000E6DE3F /* DetailLocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLocal.swift; sourceTree = "<group>"; };
+		1188EAC028CB861400E6DE3F /* Detail-Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Detail-Model.swift"; sourceTree = "<group>"; };
+		1188EAC228CB866500E6DE3F /* DetailView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailView-ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -518,6 +540,7 @@
 		114D65AB28CA00AE001A21EF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				1188EAA228CB815500E6DE3F /* App */,
 				114D65AC28CA00AE001A21EF /* Content */,
 				114D65B928CA00AE001A21EF /* Detail */,
 			);
@@ -588,7 +611,10 @@
 		114D65B928CA00AE001A21EF /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				1188EAB528CB855100E6DE3F /* Model */,
 				114D65BA28CA00AE001A21EF /* View */,
+				1188EAB628CB855E00E6DE3F /* ViewModel */,
+				1188EAB728CB859000E6DE3F /* Repository */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -599,6 +625,109 @@
 				114D65BB28CA00AE001A21EF /* DetailView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		1188EAA228CB815500E6DE3F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1188EAA628CB81F000E6DE3F /* Model */,
+				1188EAA528CB81EB00E6DE3F /* View */,
+				1188EAA428CB81E500E6DE3F /* ViewModel */,
+				1188EAA328CB81D500E6DE3F /* Repository */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		1188EAA328CB81D500E6DE3F /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				1188EAA728CB821F00E6DE3F /* AppRepository.swift */,
+				1188EAAA28CB822000E6DE3F /* Server */,
+				1188EAA828CB821F00E6DE3F /* Local */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		1188EAA428CB81E500E6DE3F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1188EAB128CB82DC00E6DE3F /* AppView-ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1188EAA528CB81EB00E6DE3F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1188EAAF28CB82A200E6DE3F /* AppView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1188EAA628CB81F000E6DE3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1188EAB328CB845700E6DE3F /* App-Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1188EAA828CB821F00E6DE3F /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				1188EAA928CB821F00E6DE3F /* AppLocal.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		1188EAAA28CB822000E6DE3F /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				1188EAAB28CB822000E6DE3F /* AppServer.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		1188EAB528CB855100E6DE3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1188EAC028CB861400E6DE3F /* Detail-Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1188EAB628CB855E00E6DE3F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1188EAC228CB866500E6DE3F /* DetailView-ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1188EAB728CB859000E6DE3F /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				1188EABA28CB859000E6DE3F /* DetailRepository.swift */,
+				1188EAB828CB859000E6DE3F /* Server */,
+				1188EABB28CB859000E6DE3F /* Local */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		1188EAB828CB859000E6DE3F /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				1188EAB928CB859000E6DE3F /* DetailServer.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		1188EABB28CB859000E6DE3F /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				1188EABC28CB859000E6DE3F /* DetailLocal.swift */,
+			);
+			path = Local;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -739,23 +868,32 @@
 				114D656E28C9FFFB001A21EF /* ObservableViewModel-Protocol.swift in Sources */,
 				114D659028CA0040001A21EF /* NetworkController.swift in Sources */,
 				114D65C128CA00AE001A21EF /* ContentView.swift in Sources */,
+				1188EAC128CB861400E6DE3F /* Detail-Model.swift in Sources */,
 				114D656F28C9FFFB001A21EF /* ViewModelAlert-Protocol.swift in Sources */,
 				114D655628C9FFEB001A21EF /* TimeInterval-Extension.swift in Sources */,
 				114D658F28CA0040001A21EF /* NetworkControllerProtocol.swift in Sources */,
 				114D656B28C9FFFB001A21EF /* AppError-Model.swift in Sources */,
+				1188EAC328CB866500E6DE3F /* DetailView-ViewModel.swift in Sources */,
 				114D659128CA0040001A21EF /* NetworkDecoder.swift in Sources */,
 				114D657428C9FFFB001A21EF /* ObservableViewModel.swift in Sources */,
+				1188EAB228CB82DC00E6DE3F /* AppView-ViewModel.swift in Sources */,
 				114D65BD28CA00AE001A21EF /* ContentServer.swift in Sources */,
 				114D651A28C9FEC8001A21EF /* MVVMSwiftUIApp.swift in Sources */,
 				114D657328C9FFFB001A21EF /* UIImpactFeedBack.swift in Sources */,
+				1188EAB028CB82A200E6DE3F /* AppView.swift in Sources */,
 				114D657128C9FFFB001A21EF /* LoadingView-Modifier.swift in Sources */,
 				114D659328CA0040001A21EF /* ServerDataManager.swift in Sources */,
 				114D659628CA0040001A21EF /* Content-Endpoint.swift in Sources */,
 				114D655528C9FFEB001A21EF /* Dictionary-Extension.swift in Sources */,
+				1188EAAE28CB822000E6DE3F /* AppServer.swift in Sources */,
 				114D65C228CA00AE001A21EF /* DetailView.swift in Sources */,
+				1188EAAC28CB822000E6DE3F /* AppRepository.swift in Sources */,
+				1188EABF28CB859000E6DE3F /* DetailLocal.swift in Sources */,
 				114D657028C9FFFB001A21EF /* ViewModelDataSource-Protocol.swift in Sources */,
 				114D655728C9FFEB001A21EF /* String-Extension.swift in Sources */,
 				114D658E28CA0040001A21EF /* NetworkResponse.swift in Sources */,
+				1188EABD28CB859000E6DE3F /* DetailServer.swift in Sources */,
+				1188EAAD28CB822000E6DE3F /* AppLocal.swift in Sources */,
 				114D656D28C9FFFB001A21EF /* ViewModelDataManager-Protocol.swift in Sources */,
 				114D659528CA0040001A21EF /* ContentServerManager.swift in Sources */,
 				114D65A828CA006B001A21EF /* ConfigurationManager.swift in Sources */,
@@ -763,7 +901,9 @@
 				114D659228CA0040001A21EF /* NetworkEndpoint.swift in Sources */,
 				114D657228C9FFFB001A21EF /* LoadingView.swift in Sources */,
 				114D65BC28CA00AE001A21EF /* ContentView-ViewModel.swift in Sources */,
+				1188EAB428CB845700E6DE3F /* App-Model.swift in Sources */,
 				114D65A528CA006B001A21EF /* ConfigReader.swift in Sources */,
+				1188EABE28CB859000E6DE3F /* DetailRepository.swift in Sources */,
 				114D656C28C9FFFB001A21EF /* LocationWeather-Model.swift in Sources */,
 				114D65BE28CA00AE001A21EF /* ContentRepository.swift in Sources */,
 				114D659428CA0040001A21EF /* WeatherResponse.swift in Sources */,

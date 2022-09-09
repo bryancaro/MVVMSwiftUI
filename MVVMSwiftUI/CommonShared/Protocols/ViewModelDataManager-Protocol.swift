@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol ViewModelDataManagerProtocol {
+protocol ViewModelDataManagerProtocol: AnyObject {
     var callbackDelegate: ViewModelAlertProtocol? { get set }
 }

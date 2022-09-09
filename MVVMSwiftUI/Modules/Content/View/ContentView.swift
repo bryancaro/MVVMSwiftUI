@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     //  MARK: - Environment
+    @EnvironmentObject var appEnvironment: AppView.ViewModel
     //  MARK: - Observed Object
     @StateObject private var viewModel = ViewModel()
     //  MARK: - Binding variables
@@ -48,8 +49,8 @@ struct ContentView: View {
                             .frame(width: 50, height: 50)
                             .onTapGesture(perform: viewModel.readEnvironment)
                         
-                        Button(action: viewModel.openDetailAction) {
-                            Text("Open Detail View")
+                        Button(action: changeRootView) {
+                            Text("Change to Detail View")
                                 .bold()
                                 .foregroundColor(.white)
                                 .padding()
@@ -57,18 +58,7 @@ struct ContentView: View {
                                 .cornerRadius(15)
                         }
                     }
-                    
-                    NavigationLink(isActive: $viewModel.showDetail) {
-                        DetailView(viewModel: viewModel)
-                    } label: {
-                        EmptyView()
-                    }
                 }
-                // Si se coloca dentro del navigation view llamara cada vez que se pasa de ventana
-                /*
-                 .onAppear(perform: viewModel.onAppear)
-                 .onDisappear(perform: viewModel.onDisappear)
-                 */
             }
         }
         .readView(isLoading: $viewModel.isLoading, appError: $viewModel.appError, dismissAlert: viewModel.dismissAlertAction)
@@ -79,14 +69,12 @@ struct ContentView: View {
 }
 
 //  MARK: - Subviews
-extension ContentView {
-    
-}
+extension ContentView {}
 
 //  MARK: - Actions
 extension ContentView {
-    func firstAction() {
-        
+    func changeRootView() {
+        appEnvironment.changeRootAction(.detail)
     }
 }
 
