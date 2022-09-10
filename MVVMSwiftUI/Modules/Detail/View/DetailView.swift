@@ -30,6 +30,7 @@ struct DetailView: View {
                         .background(Color.blue)
                         .cornerRadius(15)
                 }
+                .accessibilityIdentifier("OpenRedBackgroundViewButton")
             }
         }
         .readView(isLoading: $viewModel.isLoading, appError: $viewModel.appError, dismissAlert: viewModel.dismissAlertAction)

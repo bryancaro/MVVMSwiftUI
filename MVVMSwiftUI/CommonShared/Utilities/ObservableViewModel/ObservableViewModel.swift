@@ -25,7 +25,7 @@ class ObservableViewModel: ObservableObject, ViewModelAlertProtocol {
     }
     
     func dismissLoading()  {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isLoading = false
         }
     }

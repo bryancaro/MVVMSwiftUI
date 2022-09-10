@@ -62,6 +62,7 @@
 		1188EABF28CB859000E6DE3F /* DetailLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188EABC28CB859000E6DE3F /* DetailLocal.swift */; };
 		1188EAC128CB861400E6DE3F /* Detail-Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188EAC028CB861400E6DE3F /* Detail-Model.swift */; };
 		1188EAC328CB866500E6DE3F /* DetailView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188EAC228CB866500E6DE3F /* DetailView-ViewModel.swift */; };
+		1188EAC528CCA2FB00E6DE3F /* UITestingMVVMSwiftUI_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1188EAC428CCA2FB00E6DE3F /* UITestingMVVMSwiftUI_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +143,7 @@
 		1188EABC28CB859000E6DE3F /* DetailLocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailLocal.swift; sourceTree = "<group>"; };
 		1188EAC028CB861400E6DE3F /* Detail-Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Detail-Model.swift"; sourceTree = "<group>"; };
 		1188EAC228CB866500E6DE3F /* DetailView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailView-ViewModel.swift"; sourceTree = "<group>"; };
+		1188EAC428CCA2FB00E6DE3F /* UITestingMVVMSwiftUI_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestingMVVMSwiftUI_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 			children = (
 				114D653428C9FECB001A21EF /* MVVMSwiftUIUITests.swift */,
 				114D653628C9FECB001A21EF /* MVVMSwiftUIUITestsLaunchTests.swift */,
+				1188EAC428CCA2FB00E6DE3F /* UITestingMVVMSwiftUI_Tests.swift */,
 			);
 			path = MVVMSwiftUIUITests;
 			sourceTree = "<group>";
@@ -926,6 +929,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1188EAC528CCA2FB00E6DE3F /* UITestingMVVMSwiftUI_Tests.swift in Sources */,
 				114D653728C9FECB001A21EF /* MVVMSwiftUIUITestsLaunchTests.swift in Sources */,
 				114D653528C9FECB001A21EF /* MVVMSwiftUIUITests.swift in Sources */,
 			);

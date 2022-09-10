@@ -33,6 +33,7 @@ struct ContentView: View {
                                     .background(Color.blue)
                                     .cornerRadius(15)
                             }
+                            .accessibilityIdentifier("SuccessAPIButton")
                             
                             Button(action: viewModel.getErrorLondonWeatherAction) {
                                 Text("Error API Call")
@@ -42,6 +43,7 @@ struct ContentView: View {
                                     .background(Color.blue)
                                     .cornerRadius(15)
                             }
+                            .accessibilityIdentifier("FailureAPIButton")
                         }
                         
                         Circle()
@@ -57,6 +59,7 @@ struct ContentView: View {
                                 .background(Color.blue)
                                 .cornerRadius(15)
                         }
+                        .accessibilityIdentifier("OpenDetailViewButton")
                     }
                 }
             }
