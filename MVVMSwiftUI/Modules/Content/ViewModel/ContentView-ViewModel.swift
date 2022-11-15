@@ -15,41 +15,65 @@ extension ContentView {
         @Published var londonWeather: LocationWeatherModel?
         //  MARK: - API Cancellable
         //  MARK: - Constants
-        private var repository: ContentRepositoryProtocol!
-        private var callback  : ViewModelAlertProtocol!
+        private      var repository: ContentRepositoryProtocol!
+        private weak var callback  : ViewModelAlertProtocol?
         //  MARK: - Lifecycle
-        override init() {
-            super.init()
-            print("[DEBUG]-[VIEWMODEL] []: [init]")
+        init(_ isLoading: Bool = true, repository: ContentRepositoryProtocol = ContentRepository()) {
+            print("[DEBUG]-[VIEWMODEL] [ContentView]: [init]")
+            super.init(isLoading)
             self.callback                    = self
-            self.repository                  = ContentRepository()
+            self.repository                  = repository
             self.repository.callbackDelegate = self.callback
             initData()
         }
         
         deinit {
-            print("[DEBUG]-[VIEWMODEL] []: [deinit]")
+            print("[DEBUG]-[VIEWMODEL] [ContentView]: [deinit] [\(self)]")
             deinitData()
         }
         
         func onAppear() {
-            print("[DEBUG]-[VIEWMODEL] []: [onAppear]")
+            print("[DEBUG]-[VIEWMODEL] [ContentView]: [onAppear]")
             dismissLoading()
         }
         
         func onDisappear() {
-            print("[DEBUG]-[VIEWMODEL] []: [onDisappear]")
+            print("[DEBUG]-[VIEWMODEL] [ContentView]: [onDisappear]")
         }
         //  MARK: - UI
         func configureUI() {
-            print("[DEBUG]-[VIEWMODEL] []: [configureUI]")
+            print("[DEBUG]-[VIEWMODEL] [ContentView]: [configureUI]")
+        }
+        
+        func configureLondonWeather(_ londonWeather: LocationWeatherModel) {
+            self.londonWeather = londonWeather
+            dismissLoading()
         }
         //  MARK: - Actions
+        func getLondonWeatherAsyncAwaitAction() {
+            londonWeather = nil
+            Task {
+                await MainActor.run(body: {
+                    isLoading = true
+                })
+                
+                let weather = await repository.getLondonWeatherAsyncAwait()
+                
+                guard let weather else { return }   // RESPONSE BECAME NIL
+                
+                await MainActor.run(body: {
+                    configureLondonWeather(weather)
+                })
+            }
+        }
+        
         func getLondonWeatherAction() {
+            londonWeather = nil
             readLondonWeather()
         }
         
         func getErrorLondonWeatherAction() {
+            londonWeather = nil
             readErrorLondonWeather()
         }
         
@@ -73,18 +97,14 @@ extension ContentView {
         private func readLondonWeather() {
             showLoading()
             repository.readLondonWeather { [weak self] londonWeather in
-                print(londonWeather)
-                self?.londonWeather = londonWeather
-                self?.dismissLoading()
+                self?.configureLondonWeather(londonWeather)
             }
         }
         
         private func readErrorLondonWeather() {
             showLoading()
             repository.readLondonWeatherErrorMsg { [weak self] londonWeather in
-                print(londonWeather)
-                self?.londonWeather = londonWeather
-                self?.dismissLoading()
+                self?.configureLondonWeather(londonWeather)
             }
         }
         //  MARK: - Alerts

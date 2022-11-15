@@ -1,8 +1,9 @@
 //
 //  NetworkResponse.swift
-//  MVVMSwiftUI
+//  AppClipMenu
 //
-//  Created by Bryan Caro on 3/9/22.
+//  Created by Bryan Caro on 28/7/22.
+//  Copyright © 2022 Fractal Team. All rights reserved.
 //
 
 import Foundation
@@ -10,11 +11,9 @@ import Foundation
 //  MARK: - Empty Response
 class EmptyResponse: Decodable {}
 
-//  MARK: - Generic Server Error Response
+//  MARK: - Error Response
 struct ErrorResponse: Codable, Error {
     let errorMessage : String?
     let description  : String?
     let code         : Int?
-    let cod          : String?
-    let message      : String?
 }

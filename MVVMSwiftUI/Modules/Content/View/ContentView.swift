@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     //  MARK: - Environment
+    @EnvironmentObject var appEnvironment: AppView.ViewModel
     //  MARK: - Observed Object
     @StateObject private var viewModel = ViewModel()
     //  MARK: - Binding variables
@@ -23,6 +24,15 @@ struct ContentView: View {
             NavigationView {
                 ZStack {
                     VStack {
+                        if let data = viewModel.londonWeather {
+                            Text(data.name)
+                                .font(.title)
+                            
+                            Text(data.sys.country)
+                        }
+                        
+                        
+                        
                         HStack {
                             Button(action: viewModel.getLondonWeatherAction) {
                                 Text("Success API Call")
@@ -32,6 +42,17 @@ struct ContentView: View {
                                     .background(Color.blue)
                                     .cornerRadius(15)
                             }
+                            .accessibilityIdentifier("SuccessAPIButton")
+                            
+                            Button(action: viewModel.getLondonWeatherAsyncAwaitAction) {
+                                Text("Success API Call With Async Await")
+                                    .bold()
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.blue)
+                                    .cornerRadius(15)
+                            }
+                            .accessibilityIdentifier("SuccessAPIButton")
                             
                             Button(action: viewModel.getErrorLondonWeatherAction) {
                                 Text("Error API Call")
@@ -41,6 +62,7 @@ struct ContentView: View {
                                     .background(Color.blue)
                                     .cornerRadius(15)
                             }
+                            .accessibilityIdentifier("FailureAPIButton")
                         }
                         
                         Circle()
@@ -48,27 +70,17 @@ struct ContentView: View {
                             .frame(width: 50, height: 50)
                             .onTapGesture(perform: viewModel.readEnvironment)
                         
-                        Button(action: viewModel.openDetailAction) {
-                            Text("Open Detail View")
+                        Button(action: changeRootView) {
+                            Text("Change to Detail View")
                                 .bold()
                                 .foregroundColor(.white)
                                 .padding()
                                 .background(Color.blue)
                                 .cornerRadius(15)
                         }
-                    }
-                    
-                    NavigationLink(isActive: $viewModel.showDetail) {
-                        DetailView(viewModel: viewModel)
-                    } label: {
-                        EmptyView()
+                        .accessibilityIdentifier("OpenDetailViewButton")
                     }
                 }
-                // Si se coloca dentro del navigation view llamara cada vez que se pasa de ventana
-                /*
-                 .onAppear(perform: viewModel.onAppear)
-                 .onDisappear(perform: viewModel.onDisappear)
-                 */
             }
         }
         .readView(isLoading: $viewModel.isLoading, appError: $viewModel.appError, dismissAlert: viewModel.dismissAlertAction)
@@ -79,14 +91,12 @@ struct ContentView: View {
 }
 
 //  MARK: - Subviews
-extension ContentView {
-    
-}
+extension ContentView {}
 
 //  MARK: - Actions
 extension ContentView {
-    func firstAction() {
-        
+    func changeRootView() {
+        appEnvironment.changeRootAction(.detail)
     }
 }
 

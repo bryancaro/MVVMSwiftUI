@@ -9,62 +9,50 @@ import SwiftUI
 
 struct DetailView: View {
     //  MARK: - Environment
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var appEnvironment: AppView.ViewModel
     //  MARK: - Observed Object
-    @ObservedObject var viewModel: ContentView.ViewModel
+    @StateObject private var viewModel = ViewModel()
     //  MARK: - Binding variables
     //  MARK: - State variables
     //  MARK: - Constant variables
     //  MARK: - Properties
     //  MARK: - Initializer View
-    init(viewModel: ContentView.ViewModel) {
-        print("[DEBUG]-[VIEW] [DetailView]: [init]")
-        self.viewModel = viewModel
-    }
+    init() {}
     //  MARK: - Principal View
     var body: some View {
         ZStack {
             VStack {
-                Button(action: dismissView) {
-                    Text("Return to previews View")
+                Button(action: changeRootView) {
+                    Text("Change to Loading View")
                         .bold()
                         .foregroundColor(.white)
                         .padding()
                         .background(Color.blue)
                         .cornerRadius(15)
                 }
+                .accessibilityIdentifier("OpenRedBackgroundViewButton")
             }
         }
+        .readView(isLoading: $viewModel.isLoading, appError: $viewModel.appError, dismissAlert: viewModel.dismissAlertAction)
         //  MARK: - LifeCycle
-        .onAppear(perform: onAppear)
-        .onDisappear(perform: onDisappear)
+        .onAppear(perform: viewModel.onAppear)
+        .onDisappear(perform: viewModel.onDisappear)
     }
 }
 
 //  MARK: - Subviews
-extension DetailView {
-    
-}
+extension DetailView {}
 
 //  MARK: - Actions
 extension DetailView {
-    func onAppear() {
-        print("[DEBUG]-[VIEW] [DetailView]: [onAppear]")
-    }
-    
-    func onDisappear() {
-        print("[DEBUG]-[VIEW] [DetailView]: [onDisappear]")
-    }
-    
-    func dismissView() {
-        viewModel.closeDetailAction()
-        //presentationMode.wrappedValue.dismiss()
+    func changeRootView() {
+        appEnvironment.changeRootAction(.loading)
     }
 }
 
 //  MARK: - Preview
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(viewModel: ContentView.ViewModel())
+        DetailView()
     }
 }

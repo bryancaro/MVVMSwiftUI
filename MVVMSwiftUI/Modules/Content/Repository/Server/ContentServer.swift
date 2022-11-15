@@ -11,6 +11,7 @@ import Combine
 protocol ContentServerProtocol {
     func getLondonWeather(completion: @escaping(Result<LocationWeatherResponse, Error>) -> Void)
     func getLondonWeatherErrorMsg(completion: @escaping(Result<LocationWeatherResponse, Error>) -> Void)
+    func getLondonWeatherAsyncAwait() async throws -> LocationWeatherResponse
 }
 
 final class ContentServer: Network, ContentServer.ServerCalls {
@@ -19,6 +20,12 @@ final class ContentServer: Network, ContentServer.ServerCalls {
     private var cancellableGetLondonWeather: Cancellable?
     private var cancellableGetLondonWeatherErrorMsg: Cancellable?
     
+    //  MARK: - Async Await
+    func getLondonWeatherAsyncAwait() async throws -> LocationWeatherResponse {
+        try await manager.getLondonWeatherAsyncAwait()
+    }
+    
+    //  MARK: - Combine
     func getLondonWeather(completion: @escaping(Result<LocationWeatherResponse, Error>) -> Void) {
         cancellableGetLondonWeather = manager.getLondonWeather()
             .sink(receiveCompletion: { result in

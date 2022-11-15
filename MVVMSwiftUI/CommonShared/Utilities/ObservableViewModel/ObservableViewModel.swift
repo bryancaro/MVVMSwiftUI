@@ -13,6 +13,10 @@ class ObservableViewModel: ObservableObject, ViewModelAlertProtocol {
     @Published var isLoading: Bool      = true
     @Published var appError : AppError? = nil
     //  MARK: - Constants
+    //  MARK: - Lifecycle
+    init(_ isLoading: Bool = true) {
+        self.isLoading = isLoading
+    }
     //  MARK: - UI
     func showLoading()  {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
@@ -21,12 +25,12 @@ class ObservableViewModel: ObservableObject, ViewModelAlertProtocol {
     }
     
     func dismissLoading()  {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.isLoading = false
         }
     }
     
-    //  MARK: - Alerts
+    //  MARK: - Actions
     func dismissAlertAction() {
         print("[DEBUG]-[] []: Dismiss Alert")
     }

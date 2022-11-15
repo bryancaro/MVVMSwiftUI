@@ -10,6 +10,7 @@ import Foundation
 protocol ContentRepositoryProtocol: ViewModelDataManagerProtocol {
     func readLondonWeather(completion: @escaping(LocationWeatherModel) -> Void)
     func readLondonWeatherErrorMsg(completion: @escaping(LocationWeatherModel) -> Void)
+    func getLondonWeatherAsyncAwait() async -> LocationWeatherModel?
 }
 
 class ContentRepository: ServerDataManager {
@@ -24,6 +25,19 @@ class ContentRepository: ServerDataManager {
 }
 
 extension ContentRepository: ContentRepositoryProtocol {
+    //  MARK: - Async Await
+    func getLondonWeatherAsyncAwait() async -> LocationWeatherModel? {
+        do {
+            let response = try await server.getLondonWeatherAsyncAwait()
+            let model    = LocationWeatherModel(response)
+            return model
+        } catch {
+            await handleAlert(error: error)
+            return nil
+        }
+    }
+    
+    //  MARK: - Combine
     func readLondonWeather(completion: @escaping(LocationWeatherModel) -> Void) {
         server.getLondonWeather { [weak self] result in
             do {
