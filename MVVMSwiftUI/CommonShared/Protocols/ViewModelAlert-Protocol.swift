@@ -15,3 +15,4 @@ protocol ViewModelAlertProtocol: AnyObject {
     func serverError(_ errorString: String)
     func noInternetError(_ errorString: String)
 }
+

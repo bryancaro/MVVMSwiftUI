@@ -50,11 +50,30 @@ extension ContentView {
             dismissLoading()
         }
         //  MARK: - Actions
+        func getLondonWeatherAsyncAwaitAction() {
+            londonWeather = nil
+            Task {
+                await MainActor.run(body: {
+                    isLoading = true
+                })
+                
+                let weather = await repository.getLondonWeatherAsyncAwait()
+                
+                guard let weather else { return }   // RESPONSE BECAME NIL
+                
+                await MainActor.run(body: {
+                    configureLondonWeather(weather)
+                })
+            }
+        }
+        
         func getLondonWeatherAction() {
+            londonWeather = nil
             readLondonWeather()
         }
         
         func getErrorLondonWeatherAction() {
+            londonWeather = nil
             readErrorLondonWeather()
         }
         

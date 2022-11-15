@@ -65,7 +65,7 @@ struct ServerManagerErrorHandler {
                 return ServerManagerError.checkAccessError("default_error".localized)
             }
         }
-        result = responseError?.message ?? "default_error".localized
+        result = responseError?.errorMessage ?? "default_error".localized
         return ServerManagerError.checkAccessError(result)
     }
     
@@ -86,7 +86,7 @@ struct ServerManagerErrorHandler {
                 return ServerManagerError.checkAccessError("default_error".localized)
             }
         }
-        result = responseError?.message ?? "default_error".localized
+        result = responseError?.errorMessage ?? "default_error".localized
         return ServerManagerError.clientError(result)
     }
 }

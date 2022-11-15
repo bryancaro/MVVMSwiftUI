@@ -24,9 +24,28 @@ struct ContentView: View {
             NavigationView {
                 ZStack {
                     VStack {
+                        if let data = viewModel.londonWeather {
+                            Text(data.name)
+                                .font(.title)
+                            
+                            Text(data.sys.country)
+                        }
+                        
+                        
+                        
                         HStack {
                             Button(action: viewModel.getLondonWeatherAction) {
                                 Text("Success API Call")
+                                    .bold()
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.blue)
+                                    .cornerRadius(15)
+                            }
+                            .accessibilityIdentifier("SuccessAPIButton")
+                            
+                            Button(action: viewModel.getLondonWeatherAsyncAwaitAction) {
+                                Text("Success API Call With Async Await")
                                     .bold()
                                     .foregroundColor(.white)
                                     .padding()

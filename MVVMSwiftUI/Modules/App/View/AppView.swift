@@ -23,10 +23,16 @@ struct AppView: View {
             Group {
                 switch viewModel.appActive {
                 case .loading:
-                    Color.red.edgesIgnoringSafeArea(.all)
-                        .onTapGesture {
-                            viewModel.changeRootAction(.home)
-                        }
+                    ZStack {
+                        Color.red.edgesIgnoringSafeArea(.all)
+                            
+                        Text("Tap me...")
+                            .font(.largeTitle.bold())
+                            .foregroundColor(.white)
+                    }
+                    .onTapGesture {
+                        viewModel.changeRootAction(.home)
+                    }
                 case .home:
                     ContentView()
                 case .detail:
